@@ -181,7 +181,7 @@ def MAIN():
         elif(SECTION == 5):
             print("section5")
             TD = DOOR1 + DOOR2 + DOOR3
-            print("TD")
+            print("Total door count : "+str(TD))
             if(TS == 0 and TD == 1):
                 initTime = rospy.Time.now().to_sec()
                 TS = initTime
@@ -199,7 +199,7 @@ def MAIN():
                 else:
                     # print("Path 01")
                     done_moving()
-            elif(TS == 0 and TD == 2):
+            elif(TS == 0 and TD == 3):
                 initTime = rospy.Time.now().to_sec()
                 TS = initTime
                 T2 = initTime + 6
@@ -211,12 +211,12 @@ def MAIN():
                         command.angular.z = ODOM_ROTATION(3.14,0.2)
                     command.linear.x = 0.22
                     CMD_PUB.publish(command)
-                    print("Path 02")
+                    print("Path 03")
                     TS = rospy.Time.now().to_sec()
                 else:
                     # print("Path 02")
                     done_moving()
-            elif(TS == 0 and TD == 3):
+            elif(TS == 0 and TD == 2):
                 initTime = rospy.Time.now().to_sec()
                 TS = initTime
                 T2 = initTime + 3
@@ -231,7 +231,7 @@ def MAIN():
                         command.angular.z = ODOM_ROTATION(5,0.3)
                     command.linear.x = 0.22
                     CMD_PUB.publish(command)
-                    print("Path 03")
+                    print("Path 02")
                     TS = rospy.Time.now().to_sec()
                 else:
                     # print("Path 03")
