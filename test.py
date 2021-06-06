@@ -251,15 +251,19 @@ def MAIN():
             else:
                 if(Front > distance):
                     if(FRight < (distance / 2)):
+                        print("Range: {:.2f}m - Too close. Backing up.".format(FRight))
                         command.angular.z = +1.2
                         command.linear.x = -0.1
                     elif(FRight > (distance * 0.75)):
+                        print("Range: {:.2f}m - Wall-following; turn left.".format(FRight))
                         command.angular.z = -0.8
                         command.linear.x = 0.22
                     else:
+                        print("Range: {:.2f}m - Wall-following; turn right.".format(FRight))
                         command.angular.z = +0.8
                         command.linear.x = 0.22
                 else:
+                    print("Front obstacle detected. Turning away.")
                     command.angular.z = +1.0
                     command.linear.x = 0.0
                     CMD_PUB.publish(command)
