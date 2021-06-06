@@ -119,8 +119,8 @@ def MAIN():
     command.linear.x = 0.0
     command.angular.z = 0.0
     rate = rospy.Rate(10)
-    time.sleep(1)  # wait for node to initialize
-    near_wall = 0  # start with 0, when we get to a wall, change to 1
+    time.sleep(1)  
+    near_wall = 0  
     distance = 0.4
     print("Turning...")
     command.angular.z = -0.5
@@ -194,9 +194,10 @@ def MAIN():
                         command.angular.z = ODOM_ROTATION(3.14,0.2)
                     command.linear.x = 0.22
                     CMD_PUB.publish(command)
+                    print("Path 01")
                     TS = rospy.Time.now().to_sec()
                 else:
-                    print("done")
+                    # print("Path 01")
                     done_moving()
             elif(TS == 0 and TD == 2):
                 initTime = rospy.Time.now().to_sec()
@@ -210,9 +211,10 @@ def MAIN():
                         command.angular.z = ODOM_ROTATION(3.14,0.2)
                     command.linear.x = 0.22
                     CMD_PUB.publish(command)
+                    print("Path 02")
                     TS = rospy.Time.now().to_sec()
                 else:
-                    print("done")
+                    # print("Path 02")
                     done_moving()
             elif(TS == 0 and TD == 3):
                 initTime = rospy.Time.now().to_sec()
@@ -229,12 +231,13 @@ def MAIN():
                         command.angular.z = ODOM_ROTATION(5,0.3)
                     command.linear.x = 0.22
                     CMD_PUB.publish(command)
+                    print("Path 03")
                     TS = rospy.Time.now().to_sec()
                 else:
-                    print("done")
+                    # print("Path 03")
                     done_moving()
             else:
-                print("done done")
+                # print("Doors are not found.")
                 done_moving()
         else:
             while(near_wall == 0 and not rospy.is_shutdown()):
