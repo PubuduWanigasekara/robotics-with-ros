@@ -240,7 +240,7 @@ def MAIN():
                 # print("Doors are not found.")
                 done_moving()
         else:
-            while(near_wall == 0 and not rospy.is_shutdown()):
+            while(near_wall == 0 and not rospy.is_shutdown()): #wall following 
                 if(Front > distance and FRight > distance and FLeft > distance):
                     command.angular.z = -0.1
                     command.linear.x = 0.22
