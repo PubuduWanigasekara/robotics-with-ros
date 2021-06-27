@@ -1,0 +1,16 @@
+cd catkin_ws
+cd src
+python test.py
+
+cd catkin_ws
+cd src
+source ~/catkin_ws/devel/setup.bash
+export TURTLEBOT3_MODEL='burger'
+roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+
+cd catkin_ws
+cd src
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
